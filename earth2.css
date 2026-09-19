@@ -1,0 +1,693 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #162b52 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            #25104a 0%,
+            transparent 25%
+        ),
+
+        #030712;
+
+    overflow-x: hidden;
+}
+
+
+/* STAR FIELD */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size:
+        100px 100px,
+        170px 170px;
+
+    background-position:
+        20px 30px,
+        70px 80px;
+
+    opacity: 0.25;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+header h1 {
+    font-size: 3.2rem;
+    letter-spacing: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #62d9ff,
+            #b77cff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+header p {
+    margin-top: 10px;
+
+    color: #aebbd4;
+
+    font-size: 1.05rem;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 30px;
+
+    padding:
+        30px 0 60px;
+}
+
+
+/* PANELS */
+
+.panel {
+    background:
+        rgba(
+            12,
+            22,
+            43,
+            0.82
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+
+    backdrop-filter: blur(12px);
+}
+
+.panel h2 {
+    margin-bottom: 25px;
+
+    font-size: 1.5rem;
+}
+
+
+/* CONTROLS */
+
+.control {
+    margin-bottom: 24px;
+}
+
+.control-top {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    margin-bottom: 8px;
+}
+
+.control-top label {
+    color: #dbe7ff;
+}
+
+.value {
+    color: #6edbff;
+
+    font-weight: bold;
+}
+
+
+/* INPUTS */
+
+input[type="range"] {
+    width: 100%;
+
+    accent-color: #61d7ff;
+
+    cursor: pointer;
+}
+
+input[type="text"],
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        #34486d;
+
+    background:
+        #0a1428;
+
+    color: white;
+
+    outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+
+    border-color:
+        #61d7ff;
+
+    box-shadow:
+        0 0 10px
+        rgba(
+            97,
+            215,
+            255,
+            0.15
+        );
+}
+
+
+/* BUTTON */
+
+button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087ea4,
+            #7148c8
+        );
+
+    transition:
+        0.25s;
+}
+
+button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            80,
+            150,
+            255,
+            0.25
+        );
+}
+
+button:active {
+
+    transform:
+        scale(0.98);
+}
+
+
+/* PLANET AREA */
+
+.planet-area {
+
+    min-height: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content:
+        center;
+
+    align-items: center;
+}
+
+
+/* PLANET */
+
+.planet {
+
+    width: 240px;
+    height: 240px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin:
+        15px auto 30px;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #55d7ff,
+            #1469a5 35%,
+            #073d68 70%,
+            #021b31
+        );
+
+    box-shadow:
+
+        inset
+        -35px -25px 50px
+        rgba(
+            0,
+            0,
+            0,
+            0.6
+        ),
+
+        inset
+        20px 10px 40px
+        rgba(
+            255,
+            255,
+            255,
+            0.15
+        ),
+
+        0 0 50px
+        rgba(
+            60,
+            180,
+            255,
+            0.35
+        );
+
+    transition:
+        0.7s ease;
+}
+
+
+/* CONTINENTS */
+
+.planet::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background:
+        #2d9a62;
+
+    top: 55px;
+    left: 40px;
+
+    transform:
+        rotate(-20deg);
+
+    box-shadow:
+
+        70px 60px 0 15px
+        #3aa86c,
+
+        20px 120px 0 8px
+        #278955,
+
+        120px 25px 0 10px
+        #348e5b;
+
+    opacity: 0.8;
+}
+
+
+/* LIGHTING */
+
+.planet::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.15
+            ),
+            transparent 35%,
+            rgba(
+                0,
+                0,
+                0,
+                0.3
+            )
+        );
+}
+
+
+/* PLANET NAME */
+
+.planet-name {
+
+    font-size:
+        1.7rem;
+
+    margin-bottom:
+        5px;
+}
+
+.planet-description {
+
+    color:
+        #9eacc5;
+
+    text-align:
+        center;
+}
+
+
+/* RESULT */
+
+.result {
+
+    grid-column:
+        1 / -1;
+
+    display:
+        none;
+}
+
+.result.show {
+
+    display:
+        block;
+
+    animation:
+        appear 0.6s ease;
+}
+
+
+/* ANIMATION */
+
+@keyframes appear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* SCORE */
+
+.score {
+
+    text-align:
+        center;
+
+    font-size:
+        4rem;
+
+    font-weight:
+        bold;
+
+    margin:
+        10px 0;
+
+    color:
+        #6ee7ff;
+}
+
+
+/* PROGRESS BAR */
+
+.bar {
+
+    width:
+        100%;
+
+    height:
+        14px;
+
+    background:
+        #182640;
+
+    border-radius:
+        20px;
+
+    overflow:
+        hidden;
+
+    margin:
+        20px 0;
+}
+
+.bar-fill {
+
+    height:
+        100%;
+
+    width:
+        0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d6d,
+            #ffd166,
+            #4ade80
+        );
+
+    transition:
+        width 1s ease;
+}
+
+
+/* STATISTICS */
+
+.stats {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap:
+        15px;
+
+    margin-top:
+        25px;
+}
+
+.stat {
+
+    padding:
+        18px;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+    text-align:
+        center;
+}
+
+.stat h3 {
+
+    color:
+        #8fa4c8;
+
+    font-size:
+        0.85rem;
+
+    margin-bottom:
+        8px;
+}
+
+.stat p {
+
+    font-size:
+        1.2rem;
+
+    font-weight:
+        bold;
+}
+
+
+/* VERDICT */
+
+.verdict {
+
+    text-align:
+        center;
+
+    margin-top:
+        25px;
+
+    font-size:
+        1.2rem;
+
+    color:
+        #dce7ff;
+}
+
+
+/* FOOTER */
+
+footer {
+
+    text-align:
+        center;
+
+    color:
+        #64748b;
+
+    padding:
+        20px;
+
+    font-size:
+        0.85rem;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .container {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .stats {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    header h1 {
+
+        font-size:
+            2.2rem;
+    }
+
+    .planet {
+
+        width:
+            200px;
+
+        height:
+            200px;
+    }
+}

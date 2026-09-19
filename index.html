@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Earth 2.0 | Planet Simulator</title>
+
+    <link rel="stylesheet" href="earth2.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>EARTH 2.0</h1>
+        <p>Design a world where humanity could survive.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- PLANET CONFIGURATION -->
+        <section class="panel">
+
+            <h2>🌍 Planet Configuration</h2>
+
+            <div class="control">
+                <div class="control-top">
+                    <label for="planetName">Planet Name</label>
+                </div>
+
+                <input
+                    type="text"
+                    id="planetName"
+                    value="Nova Terra"
+                    placeholder="Enter planet name"
+                >
+            </div>
+
+
+            <!-- SIZE -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="size">Planet Size</label>
+                    <span class="value" id="sizeValue">
+                        1.0 Earth
+                    </span>
+                </div>
+
+                <input
+                    type="range"
+                    id="size"
+                    min="0.5"
+                    max="2"
+                    step="0.1"
+                    value="1"
+                >
+
+            </div>
+
+
+            <!-- DISTANCE -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="distance">Distance from Star</label>
+                    <span class="value" id="distanceValue">
+                        1.0 AU
+                    </span>
+                </div>
+
+                <input
+                    type="range"
+                    id="distance"
+                    min="0.5"
+                    max="2"
+                    step="0.1"
+                    value="1"
+                >
+
+            </div>
+
+
+            <!-- ATMOSPHERE -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="atmosphere">Atmosphere</label>
+                </div>
+
+                <select id="atmosphere">
+
+                    <option value="earth">
+                        Earth-like
+                    </option>
+
+                    <option value="thin">
+                        Thin
+                    </option>
+
+                    <option value="thick">
+                        Thick
+                    </option>
+
+                    <option value="toxic">
+                        Toxic
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- WATER -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="water">Water Coverage</label>
+
+                    <span class="value" id="waterValue">
+                        70%
+                    </span>
+                </div>
+
+                <input
+                    type="range"
+                    id="water"
+                    min="0"
+                    max="100"
+                    value="70"
+                >
+
+            </div>
+
+
+            <!-- TEMPERATURE -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="temperature">
+                        Average Temperature
+                    </label>
+
+                    <span class="value" id="temperatureValue">
+                        15°C
+                    </span>
+                </div>
+
+                <input
+                    type="range"
+                    id="temperature"
+                    min="-80"
+                    max="80"
+                    value="15"
+                >
+
+            </div>
+
+
+            <!-- GRAVITY -->
+            <div class="control">
+
+                <div class="control-top">
+                    <label for="gravity">
+                        Gravity
+                    </label>
+
+                    <span class="value" id="gravityValue">
+                        1.0 G
+                    </span>
+                </div>
+
+                <input
+                    type="range"
+                    id="gravity"
+                    min="0.2"
+                    max="2"
+                    step="0.1"
+                    value="1"
+                >
+
+            </div>
+
+
+            <button id="generateBtn">
+                🚀 Generate My Planet
+            </button>
+
+        </section>
+
+
+        <!-- PLANET PREVIEW -->
+        <section class="panel planet-area">
+
+            <div
+                class="planet"
+                id="planet"
+            ></div>
+
+            <h2
+                class="planet-name"
+                id="displayName"
+            >
+                Nova Terra
+            </h2>
+
+            <p class="planet-description">
+                Your newly designed world
+            </p>
+
+        </section>
+
+
+        <!-- RESULTS -->
+        <section
+            class="panel result"
+            id="result"
+        >
+
+            <h2>🧬 Planetary Analysis</h2>
+
+            <div
+                class="score"
+                id="score"
+            >
+                0%
+            </div>
+
+            <p style="text-align:center;">
+                Habitability Score
+            </p>
+
+            <div class="bar">
+                <div
+                    class="bar-fill"
+                    id="barFill"
+                ></div>
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>🌡 TEMPERATURE</h3>
+                    <p id="tempResult">--</p>
+                </div>
+
+                <div class="stat">
+                    <h3>💧 WATER</h3>
+                    <p id="waterResult">--</p>
+                </div>
+
+                <div class="stat">
+                    <h3>🌫 ATMOSPHERE</h3>
+                    <p id="atmosphereResult">--</p>
+                </div>
+
+                <div class="stat">
+                    <h3>🪐 GRAVITY</h3>
+                    <p id="gravityResult">--</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="verdict"
+                id="verdict"
+            >
+                Configure your planet to see the analysis.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        EARTH 2.0 • Planetary Simulation Project
+    </footer>
+
+
+    <script src="earth2.js"></script>
+
+</body>
+
+</html>
